@@ -1,0 +1,185 @@
+html {
+  scroll-behavior: smooth;
+}
+
+b,
+strong {
+  color: var(--bs-primary);
+  font-weight: 800;
+}
+pre code {
+  font-size: 0.9em;
+}
+
+code {
+  margin: 1px;
+  padding: 0 0.5em;
+  display: inline-block;
+  cursor: text;
+  border-radius: 8px;
+  background: var(--bs-gray);
+  color: var(--bs-light);
+}
+
+.code-primary {
+  background: var(--bs-primary) !important;
+  margin: 5px;
+  color: white !important;
+}
+
+.code-success {
+  background-color: var(--bs-success) !important;
+  margin: 5px;
+}
+
+.code-info {
+  background-color: var(--bs-info) !important;
+  margin: 5px;
+  color: var(--bs-light) !important;
+}
+
+.code-warning {
+  background-color: var(--bs-warning) !important;
+  margin: 5px;
+  color: var(--bs-dark) !important;
+}
+
+.code-danger {
+  background-color: var(--bs-danger) !important;
+  margin: 5px;
+  color: var(--bs-light) !important;
+}
+
+.code-royal {
+  background-color: var(--bs-royal) !important;
+  margin: 5px;
+  color: var(--bs-light) !important;
+}
+
+.code-exciting {
+  background-color: var(--bs-exciting) !important;
+  margin: 5px;
+  color: var(--bs-light) !important;
+}
+
+.tip span {
+  background: var(--bs-dark);
+  bottom: 100%;
+  display: block;
+  font-size: 0.7em;
+  left: -20px;
+  opacity: 0;
+  padding: 2px 10px;
+  margin-bottom: 5px;
+  pointer-events: none;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 2px solid var(--bs-light);
+  transform: translateY(25px);
+  transition: all 0.25s ease-out;
+  white-space: nowrap;
+  transform: translateY(0px);
+}
+
+.tip:hover span {
+  display: inline-block;
+  opacity: 1;
+  animation: fadeInDown;
+  animation-duration: 0.5s;
+}
+
+a.tip span {
+  font-weight: 600;
+  color: var(--bs-light) !important;
+}
+
+a code,
+.tip {
+  cursor: pointer !important;
+}
+
+.main {
+  font-family: 'Source Serif Pro';
+  font-size: 1.3em;
+  line-height: 150%;
+  color: #444;
+  font-weight: 300;
+}
+.main img {
+  max-width: 100%;
+}
+
+.main pre code {
+  max-width: 100%;
+  line-height: 130%;
+  overflow: auto;
+  margin: 2em auto;
+}
+
+.main h1 {
+  font-family: 'Source Sans Pro';
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.main h1:first-of-type {
+  font-size: 4.25em;
+  font-weight: 800;
+  line-height: 95%;
+  margin-bottom: 0.3em;
+  margin-top: 0.25em;
+  letter-spacing: -0.025em;
+  color: var(--bs-gray);
+}
+
+.main h2 {
+  font-family: 'Source Sans Pro';
+  font-size: 1.4em;
+}
+.main h3,
+.main h4,
+.main h5,
+.main h6 {
+  font-family: 'Source Sans Pro';
+}
+
+.main p {
+  margin-bottom: 1em;
+}
+
+.aside-main,
+.aside-supplemental {
+  font-size: 0.8em;
+}
+
+.aside-main {
+  background-color: var(--bs-gray-light);
+}
+
+.main ul,
+.main ol {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.main li {
+  margin-bottom: 0.5em;
+}
+
+hr {
+  color: transparent;
+  margin: 2em 30%;
+  border-bottom: 15px dotted var(--bs-danger);
+}
+
+.slide-link {
+  background-color: var(--bs-danger);
+  padding: 0.4em;
+  border-radius: 0.5em;
+  display: inline;
+}
+
+.slide-link a {
+  color: var(--bs-light);
+  text-decoration: none;
+}
