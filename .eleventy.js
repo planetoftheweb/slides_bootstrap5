@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
 
   // create a collection from the `slides` directory
   eleventyConfig.addCollection('slides', function (collection) {
-    return collection.getFilteredByGlob('./docs/slides/*.md')
+    return collection.getFilteredByGlob('./src/slides/*.md')
   })
 
   //Sort by fileSlug
@@ -54,8 +54,10 @@ module.exports = function (eleventyConfig) {
     setQuietMode: false,
     passthroughFileCopy: true,
     dir: {
-      input: './docs',
-      output: './docs/notes'
+      input: './src',
+      templates: '_includes',
+      data: '_data',
+      output: './src/site'
     }
   }
 }

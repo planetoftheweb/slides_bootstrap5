@@ -1,6 +1,8 @@
 {
+  "eslint.validate": ["vue", "react", "html", "json", "javascript"],
   "editor.formatOnSave": true,
-  "prettier.singleQuote": true,
-  "javascript.preferences.quoteStyle": "single",
-  "git.ignoreLimitWarning": true
+  "vetur.validation.template": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
