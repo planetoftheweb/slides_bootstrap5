@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {%- for name, item in slideindex -%}
-      {% if page.fileSlug == item.filename %}
+    {%- for item in slideindex -%}
+      {% if page.fileSlug == item.fileSlug %}
         <title>{{ page.fileSlug }}
           --
-          {{item.title}}</title>
+          {{item.data.title}}</title>
       {% endif %}
     {%- endfor -%}
     <link href="https://cdn.jsdelivr.net/npm/prism-themes@1.6.0/themes/prism-shades-of-purple.css" rel="stylesheet">
@@ -27,13 +27,13 @@
             <nav class="sticky-top fw-medium lh-sm pt-2 ">
               <h3 class="text-secondary">All Docs</h3>
 
-              {%- for name, item in slideindex -%}
-                {% if item.filename !== 'demo' %}
-                  <div class="d-flex justify-content-end align-items-right border-bottom p-2 {% if page.fileSlug  == item.filename %} bg-primary {% endif %}">
-                    <a class="text-decoration-none {% if page.fileSlug  == item.filename %} fw-bolder link-light {% else %} link-secondary {% endif %} link-primary" href="/site/slides/{{ item.filename }}/index.html">
-                      <i class="fas fa-file-alt me-2 lh-1 {% if page.fileSlug  == item.filename %} text-light {% else %} text-primary {% endif %}"></i>
-                      {{ item.filename | safe }} {{ item.title | safe }}</a>
-                    <a class="{% if page.fileSlug  == item.filename %} link-light {% else %} link-secondary {% endif %} flex-fill ms-3 text-end" href="../../../?d={{ item.filename }}&#">
+              {%- for item in collections.slides -%}
+                {% if item.fileSlug !== 'demo' and item.fileSlug !== 'slides' %}
+                  <div class="d-flex justify-content-end align-items-right border-bottom p-2 {% if page.fileSlug  == item.fileSlug %} bg-primary {% endif %}">
+                    <a class="text-decoration-none {% if page.fileSlug  == item.fileSlug %} fw-bolder link-light {% else %} link-secondary {% endif %} link-primary" href="/site/slides/{{ item.fileSlug }}/index.html">
+                      <i class="fas fa-file-alt me-2 lh-1 {% if page.fileSlug  == item.fileSlug %} text-light {% else %} text-primary {% endif %}"></i>
+                      {{ item.fileSlug | safe }} {{ item.data.title | safe }}</a>
+                    <a class="{% if page.fileSlug  == item.fileSlug %} link-light {% else %} link-secondary {% endif %} flex-fill ms-3 text-end" href="../../../?d={{ item.fileSlug }}&#">
                       <i class="fab fa-slideshare"></i>
                     </a>
                   </div>

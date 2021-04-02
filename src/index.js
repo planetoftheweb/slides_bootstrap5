@@ -2,7 +2,7 @@ import './scss/rayveal-theme.scss'
 import 'animate.css/animate.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './css/twemoji-amazing.css'
-import Menu from './slides/menuindex.json'
+import Menu from './site/js/slideList.json'
 
 //Highlight.js
 import hljs from 'highlight.js'
@@ -11,9 +11,6 @@ import Footer from './footer.html?raw'
 
 
 const markdown = import.meta.glob('./src/slides/*.md?raw');
-
-console.log(markdown)
-
 
 hljs.highlightAll()
 
@@ -120,6 +117,8 @@ Reveal.on('ready', () => {
 
   mySlides.forEach(currSlide => {
     //go through each slide
+
+    console.log(currSlide.dataset);
 
     // Does the slide use the no-fragment option (see demo)
     let hasFragments = null
