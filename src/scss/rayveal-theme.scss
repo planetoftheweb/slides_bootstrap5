@@ -10,8 +10,7 @@ $backgroundColor: transparent;
 
 // Primary/body text
 $mainFontSize: 1em;
-$mainFont: 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+$mainFont: 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 $mainColor: #000;
 
@@ -37,8 +36,8 @@ $heading4Size: 1em;
 $codeFont: 'Source Code Pro', 'Courier New', Courier, monospace;
 
 // Links and actions
-$linkColor: #13daec;
-$linkColorHover: lighten($linkColor, 20%);
+$linkColor: $cyan;
+$linkColorHover: $cyan-400;
 
 // Text selection
 $selectionColor: #fff;
@@ -70,6 +69,13 @@ $selectionColor: #fff;
  *********************************************/
 
 .reveal-viewport .slides {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  transform: none !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +100,7 @@ $selectionColor: #fff;
  *********************************************/
 
 .reveal-viewport p {
-  font-size: 0.8em;
+  font-size: clamp(0.8em, 4vw, 1.2em);
   line-height: 120%;
   margin-bottom: 0;
   margin: auto 3em;
@@ -113,7 +119,7 @@ $selectionColor: #fff;
 
 .reveal-viewport p small {
   line-height: 120%;
-  color: var(--bs-gray);
+  color: $gray-600;
 }
 /*********************************************
  * Headlines
@@ -123,12 +129,12 @@ $selectionColor: #fff;
 .reveal-viewport h1 + h3 {
   margin-top: 0.2em;
   line-height: 120%;
-  opacity: 0;
 }
 
 .reveal-viewport section > h1 {
   overflow: hidden;
   white-space: nowrap;
+  font-size: clamp(2.3em, 4vw, 4em);
   animation: typing 1.5s steps(40, end) forwards !important;
 }
 
@@ -141,12 +147,13 @@ $selectionColor: #fff;
 .reveal-viewport ul {
   text-align: left;
   margin: 0;
+  padding: 0;
 }
 
 .reveal-viewport ul {
   margin: 0;
   list-style-type: disc;
-  font-size: 0.8em;
+  font-size: clamp(0.8em, 4vw, 1.5em);
 }
 
 .reveal-viewport ul + p,
@@ -165,7 +172,6 @@ $selectionColor: #fff;
   margin-bottom: 20px !important;
   margin-left: -30px !important;
   list-style-type: none;
-  white-space: nowrap !important;
 }
 
 .reveal-viewport ul li:first-child,
@@ -185,8 +191,8 @@ $selectionColor: #fff;
 .reveal-viewport table th {
   vertical-align: middle;
   font-weight: 700;
-  color: var(--bs-light);
-  background: var(--bs-primary);
+  color: $gray-200;
+  background: $blue;
   line-height: 90%;
 }
 
@@ -197,26 +203,26 @@ $selectionColor: #fff;
 .reveal-viewport table th,
 .reveal-viewport table td {
   padding: 0.4em;
-  border-bottom: 1px solid var(--bs-gray-light);
+  border-bottom: 1px solid $gray-300;
   text-align: center;
 }
 
-/* background-color: var(--bs-gray-lighter); */
+/* background-color: $gray-200; */
 
 .reveal-viewport table th {
-  border: 1px solid var(--bs-light);
+  border: 1px solid $gray-200;
 }
 
 .reveal-viewport table th:first-child {
-  border-left: 1px solid var(--bs-gray);
-  border-top: 1px solid var(--bs-gray);
-  border-bottom: 1px solid var(--bs-gray);
+  border-left: 1px solid $gray-300;
+  border-top: 1px solid $gray-300;
+  border-bottom: 1px solid $gray-300;
 }
 
 .reveal-viewport table th:last-child {
-  border-right: 1px solid var(--bs-gray);
-  border-top: 1px solid var(--bs-gray);
-  border-bottom: 1px solid var(--bs-gray);
+  border-right: 1px solid $gray-300;
+  border-top: 1px solid $gray-300;
+  border-bottom: 1px solid $gray-300;
 }
 
 .reveal-viewport table th[align='center'],
@@ -262,6 +268,18 @@ $selectionColor: #fff;
   font-weight: 400;
   margin-top: 1em;
   overflow: hidden;
+  box-shadow: none;
+  width: auto;
+  max-width: 90%;
+}
+
+.reveal-viewport pre code {
+  padding: 8px 10px !important;
+  line-height: 120% !important;
+}
+
+.reveal-viewport code {
+  background-color: $gray-400;
 }
 
 .reveal-viewport pre + pre,
@@ -270,30 +288,29 @@ $selectionColor: #fff;
 }
 
 .reveal-viewport li li code {
-  background: var(--bs-gray);
-  color: var(--bs-light);
+  background: $gray-600;
+  color: $gray-200;
   font-weight: 600;
   font-size: 1em;
   margin-top: 0.3em;
 }
 .reveal-viewport p code,
 .reveal-viewport li code {
-  background: var(--bs-primary);
-  color: var(--bs-light);
-  font-weight: 600;
-  font-size: 1em;
-  padding: 0.2em 0.5em;
+  background-color: $gray-200;
+  color: $gray-800;
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
   margin: 0.2em 0.2em;
 }
 
 .reveal-viewport pre > code {
   background: var(--bs-beige);
   font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
+  font-size: clamp(1em, 4vw, 1.2em);
   font-weight: 400;
   text-align: left;
   white-space: pre;
-  line-height: 140%;
   padding: 1em;
   color: inherit;
   max-width: 100vw;
@@ -310,11 +327,14 @@ $selectionColor: #fff;
  * LINKS
  *********************************************/
 .reveal-viewport a {
-  color: var(--bs-royal);
+  color: $blue-500;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .reveal-viewport a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: $purple-500;
   text-shadow: none;
 }
 
@@ -342,57 +362,50 @@ $selectionColor: #fff;
   white-space: nowrap;
   cursor: text;
   border-radius: 8px;
-  background: var(--bs-gray);
-  color: var(--bs-light);
+  background: $gray-600;
+  color: $white;
 }
 
 .reveal-viewport .code-primary {
-  background: var(--bs-primary) !important;
-  margin: 5px;
-  color: var(--bs-light) !important;
+  background: $blue !important;
+  color: $white !important;
 }
 
 .reveal-viewport .code-success {
-  background-color: var(--bs-success) !important;
-  margin: 5px;
-  color: var(--bs-light) !important;
+  background-color: $green !important;
+  color: $white !important;
 }
 
 .reveal-viewport .code-info {
-  background-color: var(--bs-info) !important;
-  margin: 5px;
-  color: var(--bs-light) !important;
+  background-color: $cyan !important;
+  color: $white !important;
 }
 
 .reveal-viewport .code-warning {
-  background-color: var(--bs-warning) !important;
-  margin: 5px;
-  color: var(--bs-dark) !important;
+  background-color: $yellow !important;
+  color: $white !important;
 }
 
 .reveal-viewport .code-danger {
-  background-color: var(--bs-danger) !important;
-  margin: 5px;
-  color: var(--bs-light) !important;
+  background-color: $red !important;
+  color: $white !important;
 }
 
 .reveal-viewport .code-royal {
-  background-color: var(--bs-royal) !important;
-  margin: 5px;
-  color: var(--bs-light) !important;
+  background-color: $purple !important;
+  color: $white !important;
 }
 
 .reveal-viewport .code-exciting {
-  background-color: var(--bs-exciting) !important;
-  margin: 5px;
-  color: var(--bs-light) !important;
+  background-color: $pink !important;
+  color: $white !important;
 }
 
 /*********************************************
  * Title Slide
  *********************************************/
 .reveal-viewport.layout-title {
-  background: linear-gradient(to right, var(--bs-primary), var(--bs-info));
+  background: linear-gradient(to right, $blue, $cyan);
 }
 
 .reveal-viewport.layout-title .slides {
@@ -403,16 +416,10 @@ $selectionColor: #fff;
   bottom: 0 !important;
   right: 0 !important;
   transform: none !important;
-  color: var(--bs-light);
+  color: $gray-200;
   letter-spacing: 0.03em;
   text-align: center;
-  font-size: calc(
-    30px + (40 - 30) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
+  font-size: calc(30px + (40 - 30) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
 }
 
 .reveal-viewport.layout-title section {
@@ -431,20 +438,26 @@ $selectionColor: #fff;
 
 .reveal-viewport.layout-title .slides h1 {
   font-size: 2.2em;
-  color: var(--bs-yellow);
+  color: $yellow;
 }
 
 .reveal-viewport.layout-title .slides h2 {
   font-size: 1.6em;
   line-height: 100%;
-  color: var(--bs-dark);
+  color: $gray-800;
   filter: contrast(0.9);
 }
 
 .reveal-viewport.layout-title p {
   font-size: 0.9em;
-  margin: inherit;
-  margin: 0.5em 15%;
+  margin: 0;
+}
+
+.reveal-viewport.layout-title ol {
+  margin-top: 1em;
+}
+.reveal-viewport.layout-title ol li {
+  margin: 0;
 }
 
 .reveal-viewport.layout-title .btn {
@@ -454,7 +467,7 @@ $selectionColor: #fff;
 .reveal-viewport.layout-title small {
   font-weight: 100;
   font-size: 0.5em;
-  color: var(--bs-gray-light);
+  color: $gray-300;
 }
 
 .reveal-viewport.layout-title section {
@@ -462,12 +475,12 @@ $selectionColor: #fff;
 }
 
 .reveal-viewport.layout-title a {
-  color: var(--bs-yellow);
+  color: $yellow;
 }
 
 .reveal-viewport.layout-title li code {
-  background-color: var(--bs-warning) !important;
-  color: var(--bs-dark);
+  background-color: $red !important;
+  color: $gray-800;
   font-weight: 600;
 }
 
@@ -493,7 +506,7 @@ $selectionColor: #fff;
 
 .reveal-viewport.layout-background-image .slides {
   letter-spacing: 0.03em;
-  color: var(--bs-light);
+  color: $gray-200;
   text-align: center;
 }
 
@@ -516,11 +529,11 @@ $selectionColor: #fff;
 
 .reveal-viewport.layout-background-image p small {
   font-size: 0.7em !important;
-  color: var(--bs-gray-lighter);
+  color: $gray-200;
 }
 
 .reveal-viewport.layout-background-image a {
-  color: var(--bs-light);
+  color: $gray-200;
 }
 
 /*********************************************
@@ -528,7 +541,7 @@ $selectionColor: #fff;
  *********************************************/
 
 .reveal-viewport.layout-mostly-image {
-  background-color: var(--bs-dark);
+  background-color: $gray-800;
 }
 
 .reveal-viewport.layout-mostly-image .slides {
@@ -551,21 +564,16 @@ $selectionColor: #fff;
   animation-duration: 0.5s;
   align-self: flex-end !important;
   width: 40% !important;
-  color: var(--bs-gray-light);
+  color: $gray-300;
 }
 
 /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
 
 .reveal-viewport.layout-mostly-image h1 {
+  color: $white;
   margin-left: 0.25em;
   margin-right: 0.25em;
-  font-size: calc(
-    30px + (100 - 30) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
+  font-size: calc(30px + (100 - 30) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
 }
 
 .reveal-viewport.layout-mostly-image p {
@@ -573,37 +581,19 @@ $selectionColor: #fff;
   margin-left: 1em;
   margin-right: 1em;
   line-height: 120%;
-  font-size: calc(
-    15px + (50 - 15) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
+  font-size: calc(15px + (50 - 15) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
 }
 
 .reveal-viewport.layout-mostly-image small {
-  font-size: calc(
-    15px + (30 - 15) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
+  font-size: calc(15px + (30 - 15) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
 }
 
 .reveal-viewport.layout-mostly-image section li {
-  color: var(--bs-gray-lighter);
+  color: $gray-200;
   margin-left: 0;
   margin-right: 0;
   line-height: 110%;
-  font-size: calc(
-    22px + (50 - 22) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
+  font-size: calc(22px + (50 - 22) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
 }
 
 .reveal-viewport.layout-mostly-image ul li:first-child,
@@ -616,12 +606,12 @@ $selectionColor: #fff;
  *********************************************/
 
 .reveal-viewport.layout-background-video {
-  color: var(--bs-light);
+  color: $gray-200;
 }
 
 .reveal-viewport.layout-background-video p small {
   font-size: 0.7em !important;
-  color: var(--bs-gray-lighter);
+  color: $gray-200;
 }
 
 /*********************************************
@@ -632,16 +622,16 @@ $selectionColor: #fff;
 }
 
 .reveal-viewport.layout-quote .slides {
-  color: var(--bs-light);
+  color: $gray-200;
 }
 
 .reveal-viewport.layout-quote blockquote {
-  color: var(--bs-light) !important;
+  color: $gray-200 !important;
   font-size: 2.5em;
   line-height: 110%;
 }
 .reveal-viewport.layout-quote blockquote footer {
-  color: var(--bs-light);
+  color: $gray-200;
   font-size: 0.3em;
 }
 
@@ -654,15 +644,9 @@ $selectionColor: #fff;
  *********************************************/
 
 .footer {
-  font-size: calc(
-    20px + (30 - 20) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
-  background: var(--bs-dark);
-  color: var(--bs-white);
+  font-size: calc(20px + (30 - 20) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
+  background: $gray-800;
+  color: $white;
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -673,12 +657,12 @@ $selectionColor: #fff;
 }
 
 .footer a {
-  color: var(--bs-light);
+  color: $gray-200;
   padding: 0.1em;
 }
 
 .footer a:hover {
-  color: var(--bs-light) !important;
+  color: $gray-200 !important;
   text-decoration: underline;
 }
 
@@ -702,7 +686,7 @@ footer.fadeout {
  *********************************************/
 
 .reveal .tip span {
-  background: var(--bs-dark);
+  background: $gray-800;
   bottom: 100%;
   display: block;
   font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
@@ -715,7 +699,7 @@ footer.fadeout {
   position: absolute;
   border-radius: 10px;
   box-shadow: none;
-  border: 2px solid var(--bs-light);
+  border: 2px solid $gray-200;
   transform: translateY(25px);
   transition: all 0.25s ease-out;
   white-space: nowrap;
@@ -731,7 +715,7 @@ footer.fadeout {
 
 .reveal-viewport a.tip span {
   font-weight: 600;
-  color: var(--bs-light) !important;
+  color: $gray-200 !important;
 }
 
 .reveal-viewport a code,
@@ -878,7 +862,7 @@ footer.fadeout {
   margin-left: -1em;
   top: -0.22em;
   font-size: 1.8em;
-  color: var(--bs-danger);
+  color: $red;
   vertical-align: middle;
 }
 
@@ -900,31 +884,13 @@ footer.fadeout {
   justify-content: center;
   border-radius: 50%;
   font-weight: 400;
-  background-color: var(--bs-purple);
-  color: var(--bs-light);
+  background-color: $purple;
+  color: $white;
   list-style: none;
   margin: 0.8vmin 1vmin;
-  font-size: calc(
-    20px + (30 - 20) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
-  width: calc(
-    250px + (240 - 250) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
-  height: calc(
-    250px + (240 - 250) *
-      (
-        (100vw - 300px) /
-          (var(--maximum-viewport-width) - var(--minimum-viewport-width))
-      )
-  );
+  font-size: calc(20px + (30 - 20) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
+  width: calc(250px + (240 - 250) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
+  height: calc(250px + (240 - 250) * ((100vw - 300px) / (var(--maximum-viewport-width) - var(--minimum-viewport-width))));
   text-align: center;
   line-height: 100%;
   opacity: 0.5 !important;
@@ -939,28 +905,52 @@ footer.fadeout {
  *********************************************/
 
 .reveal-viewport.layout-code-list strong {
-  color: var(--bs-orange);
+  color: $orange;
 }
 
 .reveal-viewport.layout-code-list p {
   margin: 0;
   padding: 0;
+  margin-top: 0.4em;
+}
+
+.reveal-viewport.layout-code-list h2 {
+  font-size: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+  color: $red;
+}
+
+.reveal-viewport.layout-code-list ol li:first-child code,
+.reveal-viewport.layout-code-list ul li:first-child code {
+  background-color: $purple;
+  color: $white;
+  font-size: clamp(1em, 4vw, 2.1em);
+  padding: 0.2em 0.4em;
+  line-height: 120%;
+  margin: 0;
 }
 
 .reveal-viewport.layout-code-list ul li,
 .reveal-viewport.layout-code-list ol li {
-  font-size: 0.9em;
+  text-align: center;
   list-style: none;
-  margin-top: 0.5em;
-  line-height: 110%;
-  font-weight: 300;
+  line-height: 120%;
+  font-weight: 800;
+  margin-left: 2em;
+  margin-right: 2em;
   white-space: wrap;
+  font-size: clamp(0.64em, 5vw, 0.65em);
 }
 
 .reveal-viewport.layout-code-list ul ul,
 .reveal-viewport.layout-code-list ol ol {
-  margin-top: 0.5em;
-  font-size: 1em;
+  margin-top: 0;
+}
+
+.reveal-viewport.layout-code-list ul ul li,
+.reveal-viewport.layout-code-list ol ol li {
+  text-align: left;
 }
 
 .reveal-viewport.layout-code-list ul ul code,
@@ -968,35 +958,38 @@ footer.fadeout {
 .reveal-viewport.layout-code-list ul code,
 .reveal-viewport.layout-code-list ol code {
   font-weight: 600 !important;
-  font-size: 1em;
-  margin-left: 0.5em;
-  margin-top: 0.3em;
+  margin-top: 0.5em;
 }
 
 .reveal-viewport.layout-code-list ul li ul li:nth-child(1) code {
-  background-color: var(--bs-success);
-  color: var(--bs-light);
-  font-weight: 300;
+  background-color: $green;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.2em;
+  font-size: clamp(1em, 4vw, 1.5em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(2) code {
-  background-color: var(--bs-info);
-  color: var(--bs-light);
-  font-weight: 300;
+  background-color: $cyan;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.2em;
+  font-size: clamp(1em, 4vw, 1.5em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(3) code {
-  background-color: var(--bs-primary);
-  color: var(--bs-light);
-  font-weight: 300;
+  background-color: $blue;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.2em;
+  font-size: clamp(1em, 4vw, 1.5em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(4) code {
-  background-color: var(--bs-danger);
-  color: var(--bs-light);
-  font-weight: 300;
+  background-color: $red;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.2em;
+  font-size: clamp(1em, 4vw, 1.5em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(5) code {
-  background-color: var(--bs-info);
-  color: var(--bs-light);
-  font-weight: 300;
+  background-color: $cyan;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.2em;
+  font-size: clamp(1em, 4vw, 1.5em);
 }
 
 /*********************************************
@@ -1089,8 +1082,8 @@ footer.fadeout {
 }
 
 .reveal-viewport .list-group .current-fragment {
-  background-color: var(--bs-primary);
-  color: var(--bs-white);
+  background-color: $blue;
+  color: $white;
   font-weight: 600;
 }
 
@@ -1122,17 +1115,16 @@ footer.fadeout {
   padding-left: 100px;
   border-radius: 10px;
   z-index: 1000;
-  background: var(--bs-royal);
+  background: $purple;
   opacity: 0;
   font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
-  animation: slideOutLink 1s 6.5s ease-in-out backwards,
-    slideInLink 0.7s 2s ease-in-out backwards;
+  animation: slideOutLink 1s 6.5s ease-in-out backwards, slideInLink 0.7s 2s ease-in-out backwards;
   font-size: 0.5em !important;
   display: flex !important;
   align-items: center !important;
   font-weight: 400;
   letter-spacing: 0em;
-  border: 1px solid var(--bs-light);
+  border: 1px solid $gray-200;
 }
 
 .slide-link a {
@@ -1144,7 +1136,7 @@ footer.fadeout {
 }
 
 .slide-link:hover {
-  background-color: var(--bs-primary) !important;
+  background-color: $blue !important;
 }
 
 .slide-link a:hover {

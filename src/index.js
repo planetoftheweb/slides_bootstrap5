@@ -58,15 +58,8 @@ import Notes from 'reveal.js/plugin/notes/notes.esm'
 
 Reveal.initialize({
   plugins: [Markdown, Highlight, Notes],
-  menu: {
-    transitions: false,
-    themes: false,
-    slides: false,
-    openButton: false,
-    loadIcons: false
-  },
-  fragments: true, // Globally turn off fragments
-  footer: true, //show footer menu
+  fragments: false, // Globally turn off fragments
+  footer: false, //show footer menu
   margin: 0,
   minScale: 0,
   maxScale: 4,
@@ -118,8 +111,6 @@ Reveal.on('ready', () => {
   mySlides.forEach(currSlide => {
     //go through each slide
 
-    console.log(currSlide.dataset);
-
     // Does the slide use the no-fragment option (see demo)
     let hasFragments = null
 
@@ -170,37 +161,46 @@ Reveal.on('ready', () => {
   menuHead.innerText = 'Documents'
   menuNav.appendChild(menuHead)
 
-  Menu.map(item => {
-    let container = document.createElement('div')
+  Menu.sort((a, b) => {
+    var x = a.filename.toLowerCase();
+    var y = b.filename.toLowerCase();
+    if (x < y) { return -1; }
+    if (x > y) { return 1; }
+    return 0;
+    return b.filename - a.filename
+  }).map(item => {
+    if (item.filename !== 'demo' && item.filename !== 'slides') {
+      let container = document.createElement('div')
 
-    let menuFile = document.createElement('div')
-    if (item.filename == dataFile) {
-      container.className = 'menu-container active'
-    } else {
-      container.className = 'menu-container'
+      let menuFile = document.createElement('div')
+      if (item.filename == dataFile) {
+        container.className = 'menu-container active'
+      } else {
+        container.className = 'menu-container'
+      }
+
+      menuNav.appendChild(container)
+
+      let menuLink = document.createElement('a')
+      menuLink.className = 'menu-link'
+      menuLink.href = `?d=${item.filename}&`
+      container.appendChild(menuLink)
+
+      menuFile.className = 'menu-filename'
+      menuFile.innerText = `${item.filename}`
+      menuLink.appendChild(menuFile)
+
+      let menuTitle = document.createElement('div')
+      menuTitle.className = 'menu-title'
+      menuTitle.innerText = `${item.title}`
+      menuLink.appendChild(menuTitle)
+
+      let notes = document.createElement('a')
+      notes.className = 'menu-notes'
+      notes.href = `site/slides/${item.filename}/index.html`
+      notes.innerText = `notes`
+
+      container.appendChild(notes)
     }
-
-    menuNav.appendChild(container)
-
-    let menuLink = document.createElement('a')
-    menuLink.className = 'menu-link'
-    menuLink.href = `?d=${item.filename}`
-    container.appendChild(menuLink)
-
-    menuFile.className = 'menu-filename'
-    menuFile.innerText = `${item.filename}`
-    menuLink.appendChild(menuFile)
-
-    let menuTitle = document.createElement('div')
-    menuTitle.className = 'menu-title'
-    menuTitle.innerText = `${item.title}`
-    menuLink.appendChild(menuTitle)
-
-    let notes = document.createElement('a')
-    notes.className = 'menu-notes'
-    notes.href = `site/slides/${item.filename}/index.html`
-    notes.innerText = `notes`
-
-    container.appendChild(notes)
   })
 }) // Slides are ready to display
