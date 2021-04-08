@@ -11,8 +11,9 @@
     "dev:eleventy": "eleventy --watch",
     "build": "run-s prod:*",
     "prod:serve": "ELEVENTY_ENV=production eleventy --output=./build/site --quiet",
-    "prod:vite": "vite build --outDir=./build",
-    "prod:copy": "copyfiles -u 2 /src/slides/*.md ./build/slides"
+    "prod:copy": "copyfiles -u 2 /src/slides/*.md ./build/slides",
+    "prod:copyJS": "copyfiles -u 2 /build/site/slideList.json ./build/slides",
+    "prod:vite": "vite build --base=/build/ --outDir=./build"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
