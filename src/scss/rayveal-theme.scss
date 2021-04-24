@@ -307,7 +307,7 @@ $selectionColor: #fff;
 .reveal-viewport pre > code {
   background: var(--bs-beige);
   font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
-  font-size: clamp(1em, 4vw, 1.2em);
+  font-size: clamp(1em, 4vw, 1.8em);
   font-weight: 400;
   text-align: left;
   white-space: pre;
@@ -317,8 +317,8 @@ $selectionColor: #fff;
   overflow: hidden;
 }
 
-.reveal-viewport code table td {
-  font-size: 1.2rem;
+.reveal-viewport table td {
+  font-size: clamp(0.5em, 3vw, 1.4em);
   text-align: left;
   padding-left: 0 !important;
 }
@@ -904,6 +904,10 @@ footer.fadeout {
  * Layout Codelist
  *********************************************/
 
+.reveal-viewport.layout-code-list section {
+  text-align: center;
+}
+
 .reveal-viewport.layout-code-list strong {
   color: $orange;
 }
@@ -912,6 +916,15 @@ footer.fadeout {
   margin: 0;
   padding: 0;
   margin-top: 0.4em;
+}
+
+.reveal-viewport.layout-code-list p code {
+  background-color: $blue;
+  color: $white;
+  font-size: clamp(1em, 4vw, 1.4em);
+  padding: 0.2em 0.4em;
+  line-height: 120%;
+  margin: 0;
 }
 
 .reveal-viewport.layout-code-list h2 {
@@ -925,7 +938,7 @@ footer.fadeout {
 .reveal-viewport.layout-code-list ul li code {
   background-color: $purple;
   color: $white;
-  font-size: clamp(1em, 4vw, 2.1em);
+  font-size: clamp(1em, 4vw, 1.4em);
   padding: 0.2em 0.4em;
   line-height: 120%;
   margin: 0;
@@ -940,17 +953,12 @@ footer.fadeout {
   margin-left: 2em;
   margin-right: 2em;
   white-space: wrap;
-  font-size: clamp(0.64em, 5vw, 0.65em);
+  font-size: clamp(0.64em, 5vw, 0.6em);
 }
 
 .reveal-viewport.layout-code-list ul ul,
 .reveal-viewport.layout-code-list ol ol {
   margin-top: 0;
-}
-
-.reveal-viewport.layout-code-list ul ul li,
-.reveal-viewport.layout-code-list ol ol li {
-  text-align: left;
 }
 
 .reveal-viewport.layout-code-list ul ul code,
@@ -961,35 +969,51 @@ footer.fadeout {
   margin-top: 0.5em;
 }
 
-.reveal-viewport.layout-code-list ul li ul li:nth-child(1) code {
-  background-color: $green;
-  padding: 0.2em 0.4em;
-  margin-bottom: 0.2em;
-  font-size: clamp(1em, 4vw, 1.5em);
+.reveal-viewport.layout-code-list p code,
+.reveal-viewport li code {
+  font-size: clamp(1em, 4vw, 1.1em);
 }
-.reveal-viewport.layout-code-list ul li ul li:nth-child(2) code {
-  background-color: $cyan;
+
+.reveal-viewport.layout-code-list ul li ul li:nth-child(1) code {
+  background-color: $yellow-300;
+  color: $black;
   padding: 0.2em 0.4em;
   margin-bottom: 0.2em;
-  font-size: clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1em, 4vw, 1.2em);
+}
+
+.reveal-viewport.layout-code-list ul li ul li:nth-child(1) strong code {
+  background-color: $green;
+  color: $white;
+}
+
+.reveal-viewport.layout-code-list ul li ul li:nth-child(2) code {
+  background-color: $blue-200;
+  color: $black;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.2em;
+  font-size: clamp(1em, 4vw, 1.2em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(3) code {
-  background-color: $blue;
+  background-color: $red-200;
+  color: $black;
   padding: 0.2em 0.4em;
   margin-bottom: 0.2em;
-  font-size: clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1em, 4vw, 1.2em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(4) code {
-  background-color: $red;
+  background-color: $pink-200;
+  color: $black;
   padding: 0.2em 0.4em;
   margin-bottom: 0.2em;
-  font-size: clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1em, 4vw, 1.2em);
 }
 .reveal-viewport.layout-code-list ul li ul li:nth-child(5) code {
-  background-color: $cyan;
+  background-color: $orange-200;
+  color: $black;
   padding: 0.2em 0.4em;
   margin-bottom: 0.2em;
-  font-size: clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1em, 4vw, 1.2em);
 }
 
 /*********************************************
