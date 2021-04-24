@@ -934,6 +934,18 @@ footer.fadeout {
   color: $red;
 }
 
+.reveal-viewport.layout-code-list ul ul,
+.reveal-viewport.layout-code-list ul ol,
+.reveal-viewport.layout-code-list ol ol,
+.reveal-viewport.layout-code-list ol ul {
+  margin-left: 0;
+}
+
+.reveal-viewport.layout-code-list ul li ul li,
+.reveal-viewport.layout-code-list ol li ul li {
+  margin: 0 !important;
+}
+
 .reveal-viewport.layout-code-list ol li code,
 .reveal-viewport.layout-code-list ul li code {
   background-color: $purple;
