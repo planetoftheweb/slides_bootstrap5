@@ -52,7 +52,7 @@ import Notes from 'reveal.js/plugin/notes/notes.esm'
 Reveal.initialize({
   plugins: [Markdown, Highlight, Notes],
   fragments: true, // Globally turn off fragments
-  footer: false, //show footer menu
+  footer: true, //show footer menu
   margin: 0,
   minScale: 0,
   maxScale: 4,
@@ -101,9 +101,9 @@ Reveal.on('ready', () => {
     // Does the slide use the no-fragment option (see demo)
     let hasFragments = null
 
-      ; (currSlide.dataset.state && currSlide.dataset.state.includes('no-fragment')) || !Reveal.getConfig().fragments
-        ? (hasFragments = false)
-        : (hasFragments = true)
+    ;(currSlide.dataset.state && currSlide.dataset.state.includes('no-fragment')) || !Reveal.getConfig().fragments
+      ? (hasFragments = false)
+      : (hasFragments = true)
 
     if (hasFragments) {
       // Control which items to add fragments
