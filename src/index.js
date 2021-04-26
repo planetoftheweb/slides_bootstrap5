@@ -101,9 +101,9 @@ Reveal.on('ready', () => {
     // Does the slide use the no-fragment option (see demo)
     let hasFragments = null
 
-    ;(currSlide.dataset.state && currSlide.dataset.state.includes('no-fragment')) || !Reveal.getConfig().fragments
-      ? (hasFragments = false)
-      : (hasFragments = true)
+      ; (currSlide.dataset.state && currSlide.dataset.state.includes('no-fragment')) || !Reveal.getConfig().fragments
+        ? (hasFragments = false)
+        : (hasFragments = true)
 
     if (hasFragments) {
       // Control which items to add fragments
@@ -158,7 +158,7 @@ Reveal.on('ready', () => {
     return 0
     return b.filename - a.filename
   }).map(item => {
-    if (item.filename !== 'demo' && item.filename !== 'slides') {
+    if (item.filename !== 'demo' && item.filename !== 'slides' && !item.filename.startsWith('00_') && !item.filename.startsWith('99_')) {
       let container = document.createElement('div')
 
       let menuFile = document.createElement('div')
