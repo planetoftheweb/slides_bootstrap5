@@ -9,8 +9,6 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/color-brewer.css'
 import Footer from './footer.html?raw'
 
-const markdown = import.meta.glob('./src/slides/*.md?raw')
-
 hljs.highlightAll()
 
 //Loading Google Fonts
@@ -101,9 +99,9 @@ Reveal.on('ready', () => {
     // Does the slide use the no-fragment option (see demo)
     let hasFragments = null
 
-    ;(currSlide.dataset.state && currSlide.dataset.state.includes('no-fragment')) || !Reveal.getConfig().fragments
-      ? (hasFragments = false)
-      : (hasFragments = true)
+      ; (currSlide.dataset.state && currSlide.dataset.state.includes('no-fragment')) || !Reveal.getConfig().fragments
+        ? (hasFragments = false)
+        : (hasFragments = true)
 
     if (hasFragments) {
       // Control which items to add fragments
