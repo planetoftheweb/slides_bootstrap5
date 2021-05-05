@@ -13,7 +13,7 @@
     "prod:del": "rimraf build",
     "prod:serve": "ELEVENTY_ENV=production eleventy --output=./build/site",
     "prod:copy": "copyfiles -u 2 ./src/slides/*.md ./build/slides",
-    "prod:copyJS": "copyfiles -u 2 /build/site/slideList.json ./js/slideList.json",
+    "prod:copyJS": "copyfiles -u 2 /build/site/slideList.json ./site/js/slideList.json",
     "prod:vite": "vite build --outDir=../build"
   },
   "devDependencies": {
