@@ -14,7 +14,7 @@
     "prod:serve": "ELEVENTY_ENV=production eleventy --output=./docs/site",
     "prod:copy": "copyfiles -u 2 ./src/slides/*.md ./docs/slides",
     "prod:copyJS": "copyfiles -u 2 /docs/site/slideList.json ./js/slideList.json",
-    "prod:vite": "vite build --outDir=../docs"
+    "prod:vite": "vite build --outDir=../docs --base=/slides_bootstrap5"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
