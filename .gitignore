@@ -5,4 +5,3 @@ dist-ssr
 *.local
 public
 src/site
-build

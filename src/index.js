@@ -2,12 +2,14 @@ import './scss/rayveal-theme.scss'
 import 'animate.css/animate.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './css/twemoji-amazing.css'
-import Menu from 'slideList.json'
+import Menu from './site/js/slideList.json'
 
 //Highlight.js
 import hljs from 'highlight.js'
 import 'highlight.js/styles/color-brewer.css'
 import Footer from './footer.html?raw'
+
+const markdown = import.meta.glob('./src/slides/*.md?raw')
 
 hljs.highlightAll()
 
