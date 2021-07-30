@@ -27,8 +27,8 @@
             <nav class="sticky-top fw-medium lh-sm pt-2 ">
               <h3 class="text-secondary">All Docs</h3>
 
-              {%- for item in collections.slides -%}
-                {% if item.fileSlug !== 'demo' and item.fileSlug !== 'slides' %}
+              {%- for item in collections.slides | sortBySlugs -%}
+                {% if item.fileSlug !== 'demo' and not (r/^00.*/g).test(item.fileSlug) and not (r/^99.*/g).test(item.fileSlug) and item.fileSlug !== 'slides' %}
                   <div class="d-flex justify-content-end align-items-right border-bottom p-2 {% if page.fileSlug  == item.fileSlug %} bg-primary {% endif %}">
                     <a class="text-decoration-none {% if page.fileSlug  == item.fileSlug %} fw-bolder link-light {% else %} link-secondary {% endif %} link-primary" href="../{{ item.fileSlug }}/index.html">
                       <i class="fas fa-file-alt me-2 lh-1 {% if page.fileSlug  == item.fileSlug %} text-light {% else %} text-primary {% endif %}"></i>
