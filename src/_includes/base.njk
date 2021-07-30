@@ -30,7 +30,7 @@
               {%- for item in collections.slides -%}
                 {% if item.fileSlug !== 'demo' and item.fileSlug !== 'slides' %}
                   <div class="d-flex justify-content-end align-items-right border-bottom p-2 {% if page.fileSlug  == item.fileSlug %} bg-primary {% endif %}">
-                    <a class="text-decoration-none {% if page.fileSlug  == item.fileSlug %} fw-bolder link-light {% else %} link-secondary {% endif %} link-primary" href="/site/slides/{{ item.fileSlug }}/index.html">
+                    <a class="text-decoration-none {% if page.fileSlug  == item.fileSlug %} fw-bolder link-light {% else %} link-secondary {% endif %} link-primary" href="../{{ item.fileSlug }}/index.html">
                       <i class="fas fa-file-alt me-2 lh-1 {% if page.fileSlug  == item.fileSlug %} text-light {% else %} text-primary {% endif %}"></i>
                       {{ item.fileSlug | safe }} {{ item.data.title | safe }}</a>
                     <a class="{% if page.fileSlug  == item.fileSlug %} link-light {% else %} link-secondary {% endif %} flex-fill ms-3 text-end" href="../../../?d={{ item.fileSlug }}&#">
